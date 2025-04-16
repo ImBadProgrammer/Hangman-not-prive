@@ -1,0 +1,73 @@
+<html>
+<head>
+<title>RandomWordGenerator.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #6aab73;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+RandomWordGenerator.java</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">util</span><span class="s2">.</span><span class="s1">List</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">util</span><span class="s2">.</span><span class="s1">Random</span><span class="s2">;</span>
+
+<span class="s0">public class </span><span class="s1">RandomWordGenerator </span><span class="s0">extends </span><span class="s1">DifficultySelection</span><span class="s2">{</span>
+
+    <span class="s0">private final </span><span class="s1">Random random </span><span class="s2">= </span><span class="s0">new </span><span class="s1">Random</span><span class="s2">();</span>
+    <span class="s1">WordEliminator wordEliminator </span><span class="s2">= </span><span class="s0">new </span><span class="s1">WordEliminator</span><span class="s2">(</span><span class="s3">&quot;american-english.txt&quot;</span><span class="s2">);</span>
+
+    <span class="s0">public </span><span class="s1">String getRandomWord</span><span class="s2">() {</span>
+        <span class="s1">List</span><span class="s2">&lt;</span><span class="s1">String</span><span class="s2">&gt; </span><span class="s1">words </span><span class="s2">= </span><span class="s1">wordEliminator</span><span class="s2">.</span><span class="s1">getModdedWordList</span><span class="s2">();</span>
+
+        <span class="s0">int </span><span class="s1">randomIndex </span><span class="s2">= </span><span class="s1">random</span><span class="s2">.</span><span class="s1">nextInt</span><span class="s2">(</span><span class="s1">words</span><span class="s2">.</span><span class="s1">size</span><span class="s2">());</span>
+        <span class="s0">return </span><span class="s1">words</span><span class="s2">.</span><span class="s1">get</span><span class="s2">(</span><span class="s1">randomIndex</span><span class="s2">);</span>
+    <span class="s2">}</span>
+
+    <span class="s0">public </span><span class="s1">String getEasyWord</span><span class="s2">(){</span>
+        <span class="s1">List</span><span class="s2">&lt;</span><span class="s1">String</span><span class="s2">&gt; </span><span class="s1">words </span><span class="s2">= </span><span class="s1">getEasyWords</span><span class="s2">();</span>
+
+        <span class="s0">int </span><span class="s1">randomIndex </span><span class="s2">= </span><span class="s1">random</span><span class="s2">.</span><span class="s1">nextInt</span><span class="s2">(</span><span class="s1">words</span><span class="s2">.</span><span class="s1">size</span><span class="s2">());</span>
+        <span class="s0">return </span><span class="s1">words</span><span class="s2">.</span><span class="s1">get</span><span class="s2">(</span><span class="s1">randomIndex</span><span class="s2">);</span>
+    <span class="s2">}</span>
+
+    <span class="s0">public </span><span class="s1">String getMediumWord</span><span class="s2">(){</span>
+        <span class="s1">List</span><span class="s2">&lt;</span><span class="s1">String</span><span class="s2">&gt; </span><span class="s1">words </span><span class="s2">= </span><span class="s1">getMediumWords</span><span class="s2">();</span>
+
+        <span class="s0">int </span><span class="s1">randomIndex </span><span class="s2">= </span><span class="s1">random</span><span class="s2">.</span><span class="s1">nextInt</span><span class="s2">(</span><span class="s1">words</span><span class="s2">.</span><span class="s1">size</span><span class="s2">());</span>
+        <span class="s0">return </span><span class="s1">words</span><span class="s2">.</span><span class="s1">get</span><span class="s2">(</span><span class="s1">randomIndex</span><span class="s2">);</span>
+    <span class="s2">}</span>
+
+    <span class="s0">public </span><span class="s1">String getHardWord</span><span class="s2">(){</span>
+        <span class="s1">List</span><span class="s2">&lt;</span><span class="s1">String</span><span class="s2">&gt; </span><span class="s1">words </span><span class="s2">= </span><span class="s1">getHardWords</span><span class="s2">();</span>
+
+        <span class="s0">int </span><span class="s1">randomIndex </span><span class="s2">= </span><span class="s1">random</span><span class="s2">.</span><span class="s1">nextInt</span><span class="s2">(</span><span class="s1">words</span><span class="s2">.</span><span class="s1">size</span><span class="s2">());</span>
+        <span class="s0">return </span><span class="s1">words</span><span class="s2">.</span><span class="s1">get</span><span class="s2">(</span><span class="s1">randomIndex</span><span class="s2">);</span>
+    <span class="s2">}</span>
+
+    <span class="s0">public </span><span class="s1">String getExtremeWord</span><span class="s2">(){</span>
+        <span class="s1">List</span><span class="s2">&lt;</span><span class="s1">String</span><span class="s2">&gt; </span><span class="s1">words </span><span class="s2">= </span><span class="s1">getExtremeWords</span><span class="s2">();</span>
+
+        <span class="s0">int </span><span class="s1">randomIndex </span><span class="s2">= </span><span class="s1">random</span><span class="s2">.</span><span class="s1">nextInt</span><span class="s2">(</span><span class="s1">words</span><span class="s2">.</span><span class="s1">size</span><span class="s2">());</span>
+        <span class="s0">return </span><span class="s1">words</span><span class="s2">.</span><span class="s1">get</span><span class="s2">(</span><span class="s1">randomIndex</span><span class="s2">);</span>
+    <span class="s2">}</span>
+
+
+    <span class="s0">public </span><span class="s1">String getBigWord</span><span class="s2">(){</span>
+        <span class="s1">List</span><span class="s2">&lt;</span><span class="s1">String</span><span class="s2">&gt; </span><span class="s1">words </span><span class="s2">= </span><span class="s1">getBigAhhWords</span><span class="s2">();</span>
+
+        <span class="s0">int </span><span class="s1">randomIndex </span><span class="s2">= </span><span class="s1">random</span><span class="s2">.</span><span class="s1">nextInt</span><span class="s2">(</span><span class="s1">words</span><span class="s2">.</span><span class="s1">size</span><span class="s2">());</span>
+        <span class="s0">return </span><span class="s1">words</span><span class="s2">.</span><span class="s1">get</span><span class="s2">(</span><span class="s1">randomIndex</span><span class="s2">);</span>
+    <span class="s2">}</span>
+
+
+<span class="s2">}</span>
+</pre>
+</body>
+</html>

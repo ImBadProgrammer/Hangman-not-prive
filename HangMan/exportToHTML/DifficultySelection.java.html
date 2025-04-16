@@ -1,0 +1,70 @@
+<html>
+<head>
+<title>DifficultySelection.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #6aab73;}
+.s4 { color: #7a7e85;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+DifficultySelection.java</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">util</span><span class="s2">.</span><span class="s1">ArrayList</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">util</span><span class="s2">.</span><span class="s1">List</span><span class="s2">;</span>
+
+<span class="s0">public class </span><span class="s1">DifficultySelection </span><span class="s0">implements </span><span class="s1">isDifficultLevel</span><span class="s2">{</span>
+
+    <span class="s0">private final </span><span class="s1">List</span><span class="s2">&lt;</span><span class="s1">String</span><span class="s2">&gt; </span><span class="s1">bigAhhWords </span><span class="s2">= </span><span class="s0">new </span><span class="s1">ArrayList</span><span class="s2">&lt;&gt;();</span>
+
+    <span class="s1">String file </span><span class="s2">= </span><span class="s3">&quot;american-english.txt&quot;</span><span class="s2">;</span>
+
+    <span class="s1">EasyWords easyWords </span><span class="s2">= </span><span class="s0">new </span><span class="s1">EasyWords</span><span class="s2">(</span><span class="s1">file</span><span class="s2">);</span>
+    <span class="s1">MediumWords mediumWords </span><span class="s2">= </span><span class="s0">new </span><span class="s1">MediumWords</span><span class="s2">(</span><span class="s1">file</span><span class="s2">);</span>
+    <span class="s1">HardWords hardWords </span><span class="s2">= </span><span class="s0">new </span><span class="s1">HardWords</span><span class="s2">(</span><span class="s1">file</span><span class="s2">);</span>
+    <span class="s1">ExtremeWords extremeWords </span><span class="s2">= </span><span class="s0">new </span><span class="s1">ExtremeWords</span><span class="s2">(</span><span class="s1">file</span><span class="s2">);</span>
+
+    <span class="s1">@Override</span>
+    <span class="s0">public </span><span class="s1">List</span><span class="s2">&lt;</span><span class="s1">String</span><span class="s2">&gt; </span><span class="s1">getEasyWords</span><span class="s2">() {</span>
+        <span class="s0">return </span><span class="s1">easyWords</span><span class="s2">.</span><span class="s1">getFiveLetterWordList</span><span class="s2">();</span>
+    <span class="s2">}</span>
+
+    <span class="s1">@Override</span>
+    <span class="s0">public </span><span class="s1">List</span><span class="s2">&lt;</span><span class="s1">String</span><span class="s2">&gt; </span><span class="s1">getMediumWords</span><span class="s2">() {</span>
+        <span class="s0">return </span><span class="s1">mediumWords</span><span class="s2">.</span><span class="s1">getSixLetterWordList</span><span class="s2">();</span>
+    <span class="s2">}</span>
+
+    <span class="s1">@Override</span>
+    <span class="s0">public </span><span class="s1">List</span><span class="s2">&lt;</span><span class="s1">String</span><span class="s2">&gt; </span><span class="s1">getHardWords</span><span class="s2">() {</span>
+        <span class="s0">return </span><span class="s1">hardWords</span><span class="s2">.</span><span class="s1">getSevenLetterWordList</span><span class="s2">();</span>
+    <span class="s2">}</span>
+
+    <span class="s1">@Override</span>
+    <span class="s0">public </span><span class="s1">List</span><span class="s2">&lt;</span><span class="s1">String</span><span class="s2">&gt; </span><span class="s1">getExtremeWords</span><span class="s2">() {</span>
+        <span class="s0">return </span><span class="s1">extremeWords</span><span class="s2">.</span><span class="s1">getEightLetterWordList</span><span class="s2">();</span>
+    <span class="s2">}</span>
+
+    <span class="s0">public </span><span class="s1">List</span><span class="s2">&lt;</span><span class="s1">String</span><span class="s2">&gt; </span><span class="s1">getBigAhhWords</span><span class="s2">(){</span>
+
+        <span class="s1">bigAhhWords</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s3">&quot;antidisestablishmentarianism&quot;</span><span class="s2">);</span>
+        <span class="s1">bigAhhWords</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s3">&quot;floccinaucinihilipilification&quot;</span><span class="s2">);</span>
+        <span class="s1">bigAhhWords</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s3">&quot;pseudopseudohypoparathyroidism &quot;</span><span class="s2">);</span>
+        <span class="s1">bigAhhWords</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s3">&quot;incomprehensibilities&quot;</span><span class="s2">);</span>
+        <span class="s1">bigAhhWords</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s3">&quot;pneumonoultramicroscopicsilicovolcanoconiosis&quot;</span><span class="s2">);</span>
+        <span class="s1">bigAhhWords</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s3">&quot;hippopotomonstrosesquippedaliophobia&quot;</span><span class="s2">); </span><span class="s4">//the fear of big words lol</span>
+        <span class="s1">bigAhhWords</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s3">&quot;honorificabilitudinitatibus&quot;</span><span class="s2">);</span>
+        <span class="s1">bigAhhWords</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s3">&quot;xenotransplantation&quot;</span><span class="s2">);</span>
+
+        <span class="s0">return </span><span class="s1">bigAhhWords</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+<span class="s2">}</span>
+</pre>
+</body>
+</html>

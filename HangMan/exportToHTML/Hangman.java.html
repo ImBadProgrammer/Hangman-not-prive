@@ -1,0 +1,104 @@
+<html>
+<head>
+<title>Hangman.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #6aab73;}
+.s4 { color: #7a7e85;}
+.s5 { color: #2aacb8;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Hangman.java</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">util</span><span class="s2">.</span><span class="s1">Scanner</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">util</span><span class="s2">.</span><span class="s1">ArrayList</span><span class="s2">;</span>
+
+<span class="s0">public class </span><span class="s1">Hangman </span><span class="s2">{</span>
+
+    <span class="s1">String blank </span><span class="s2">= </span><span class="s3">&quot;_&quot;</span><span class="s2">;</span>
+
+    <span class="s1">Scanner scanner </span><span class="s2">= </span><span class="s0">new </span><span class="s1">Scanner</span><span class="s2">(</span><span class="s1">System</span><span class="s2">.</span><span class="s1">in</span><span class="s2">);</span>
+    <span class="s1">ArrayList</span><span class="s2">&lt;</span><span class="s1">Character</span><span class="s2">&gt; </span><span class="s1">letters </span><span class="s2">= </span><span class="s0">new </span><span class="s1">ArrayList</span><span class="s2">&lt;&gt;();</span>
+    <span class="s1">ArrayList</span><span class="s2">&lt;</span><span class="s1">Character</span><span class="s2">&gt; </span><span class="s1">blanks </span><span class="s2">= </span><span class="s0">new </span><span class="s1">ArrayList</span><span class="s2">&lt;&gt;();</span>
+
+    <span class="s1">String</span><span class="s2">[] </span><span class="s1">hangman </span><span class="s2">= {</span>
+            <span class="s3">&quot;🤨&quot;</span><span class="s2">,   </span><span class="s4">// head</span>
+            <span class="s3">&quot;))&quot;</span><span class="s2">,   </span><span class="s4">// body</span>
+            <span class="s3">&quot;&lt;&quot;</span><span class="s2">,    </span><span class="s4">// left arm</span>
+            <span class="s3">&quot;&gt;&quot;</span><span class="s2">,    </span><span class="s4">// right arm</span>
+            <span class="s3">&quot;_/&quot;</span><span class="s2">,   </span><span class="s4">// left leg</span>
+            <span class="s3">&quot;</span><span class="s0">\\</span><span class="s3">_&quot;   </span><span class="s4">// right leg</span>
+    <span class="s2">};</span>
+
+    <span class="s0">public void </span><span class="s1">toLetters</span><span class="s2">(</span><span class="s1">String word</span><span class="s2">){</span>
+        <span class="s4">//Makes two lists. One filled with blanks, and one that is the finished word</span>
+        <span class="s0">for </span><span class="s2">(</span><span class="s0">int </span><span class="s1">i </span><span class="s2">= </span><span class="s5">0</span><span class="s2">; </span><span class="s1">i </span><span class="s2">&lt; </span><span class="s1">word</span><span class="s2">.</span><span class="s1">length</span><span class="s2">(); </span><span class="s1">i</span><span class="s2">++) {</span>
+            <span class="s1">letters</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s1">word</span><span class="s2">.</span><span class="s1">charAt</span><span class="s2">(</span><span class="s1">i</span><span class="s2">));</span>
+            <span class="s1">blanks</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s1">blank</span><span class="s2">.</span><span class="s1">charAt</span><span class="s2">(</span><span class="s5">0</span><span class="s2">));</span>
+        <span class="s2">}</span>
+    <span class="s2">}</span>
+
+    <span class="s0">public </span><span class="s1">String guess </span><span class="s2">(</span><span class="s1">String word</span><span class="s2">) {</span>
+        <span class="s0">int </span><span class="s1">numAttempts </span><span class="s2">= </span><span class="s5">0</span><span class="s2">;</span>
+
+        <span class="s4">//Allows the user to guess letters until the string of blanks matches the string of letters</span>
+        <span class="s0">while </span><span class="s2">(!</span><span class="s1">blanks</span><span class="s2">.</span><span class="s1">equals</span><span class="s2">(</span><span class="s1">letters</span><span class="s2">)) {</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s3">&quot;Guess a letter:&quot;</span><span class="s2">);</span>
+
+            <span class="s0">char </span><span class="s1">letter </span><span class="s2">= </span><span class="s1">scanner</span><span class="s2">.</span><span class="s1">nextLine</span><span class="s2">().</span><span class="s1">charAt</span><span class="s2">(</span><span class="s5">0</span><span class="s2">);</span>
+
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">();</span>
+            <span class="s0">if </span><span class="s2">(</span><span class="s1">word</span><span class="s2">.</span><span class="s1">contains</span><span class="s2">(</span><span class="s1">String</span><span class="s2">.</span><span class="s1">valueOf</span><span class="s2">(</span><span class="s1">letter</span><span class="s2">))) {</span>
+                <span class="s0">for </span><span class="s2">(</span><span class="s0">int </span><span class="s1">i </span><span class="s2">= </span><span class="s5">0</span><span class="s2">; </span><span class="s1">i </span><span class="s2">&lt; </span><span class="s1">letters</span><span class="s2">.</span><span class="s1">size</span><span class="s2">(); </span><span class="s1">i</span><span class="s2">++) {</span>
+                    <span class="s0">if </span><span class="s2">(</span><span class="s1">letters</span><span class="s2">.</span><span class="s1">get</span><span class="s2">(</span><span class="s1">i</span><span class="s2">) == </span><span class="s1">letter</span><span class="s2">) {</span>
+                        <span class="s1">blanks</span><span class="s2">.</span><span class="s1">set</span><span class="s2">(</span><span class="s1">i</span><span class="s2">, </span><span class="s1">word</span><span class="s2">.</span><span class="s1">charAt</span><span class="s2">(</span><span class="s1">i</span><span class="s2">));</span>
+                    <span class="s2">}</span>
+                <span class="s2">}</span>
+                <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s1">blanks</span><span class="s2">.</span><span class="s1">toString</span><span class="s2">() + </span><span class="s3">&quot;</span><span class="s0">\n</span><span class="s3">&quot;</span><span class="s2">);</span>
+
+            <span class="s2">} </span><span class="s0">else </span><span class="s2">{</span>
+
+                <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s3">&quot;Letter: &quot; </span><span class="s2">+ </span><span class="s1">letter </span><span class="s2">+ </span><span class="s3">&quot; is not in the word&quot;</span><span class="s2">);</span>
+                <span class="s1">numAttempts</span><span class="s2">++;</span>
+
+                <span class="s0">if </span><span class="s2">(</span><span class="s1">numAttempts </span><span class="s2">== </span><span class="s5">1</span><span class="s2">) {</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s1">hangman</span><span class="s2">[</span><span class="s5">0</span><span class="s2">]);</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">();</span>
+                <span class="s2">} </span><span class="s0">else if </span><span class="s2">(</span><span class="s1">numAttempts </span><span class="s2">== </span><span class="s5">2</span><span class="s2">) {</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s1">hangman</span><span class="s2">[</span><span class="s5">0</span><span class="s2">]);</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s1">hangman</span><span class="s2">[</span><span class="s5">1</span><span class="s2">]);</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">();</span>
+                <span class="s2">} </span><span class="s0">else if </span><span class="s2">(</span><span class="s1">numAttempts </span><span class="s2">== </span><span class="s5">3</span><span class="s2">) {</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s3">&quot; &quot; </span><span class="s2">+ </span><span class="s1">hangman</span><span class="s2">[</span><span class="s5">0</span><span class="s2">]);</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s1">hangman</span><span class="s2">[</span><span class="s5">2</span><span class="s2">] + </span><span class="s3">&quot; &quot; </span><span class="s2">+ </span><span class="s1">hangman</span><span class="s2">[</span><span class="s5">1</span><span class="s2">]);</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">();</span>
+                <span class="s2">} </span><span class="s0">else if </span><span class="s2">(</span><span class="s1">numAttempts </span><span class="s2">== </span><span class="s5">4</span><span class="s2">) {</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s3">&quot; &quot; </span><span class="s2">+ </span><span class="s1">hangman</span><span class="s2">[</span><span class="s5">0</span><span class="s2">]);</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s1">hangman</span><span class="s2">[</span><span class="s5">2</span><span class="s2">] + </span><span class="s3">&quot; &quot; </span><span class="s2">+ </span><span class="s1">hangman</span><span class="s2">[</span><span class="s5">1</span><span class="s2">] + </span><span class="s3">&quot; &quot; </span><span class="s2">+ </span><span class="s1">hangman</span><span class="s2">[</span><span class="s5">3</span><span class="s2">]);</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">();</span>
+                <span class="s2">} </span><span class="s0">else if </span><span class="s2">(</span><span class="s1">numAttempts </span><span class="s2">== </span><span class="s5">5</span><span class="s2">) {</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s3">&quot; &quot; </span><span class="s2">+ </span><span class="s1">hangman</span><span class="s2">[</span><span class="s5">0</span><span class="s2">]);</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s1">hangman</span><span class="s2">[</span><span class="s5">2</span><span class="s2">] + </span><span class="s3">&quot; &quot; </span><span class="s2">+ </span><span class="s1">hangman</span><span class="s2">[</span><span class="s5">1</span><span class="s2">] + </span><span class="s3">&quot; &quot; </span><span class="s2">+ </span><span class="s1">hangman</span><span class="s2">[</span><span class="s5">3</span><span class="s2">]);</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s1">hangman</span><span class="s2">[</span><span class="s5">4</span><span class="s2">]);</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">();</span>
+                <span class="s2">} </span><span class="s0">else </span><span class="s2">{</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s3">&quot; &quot; </span><span class="s2">+ </span><span class="s1">hangman</span><span class="s2">[</span><span class="s5">0</span><span class="s2">] + </span><span class="s3">&quot; Just gonna leave me hanging? &quot;</span><span class="s2">);</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s1">hangman</span><span class="s2">[</span><span class="s5">2</span><span class="s2">] + </span><span class="s3">&quot; &quot; </span><span class="s2">+ </span><span class="s1">hangman</span><span class="s2">[</span><span class="s5">1</span><span class="s2">] + </span><span class="s3">&quot; &quot; </span><span class="s2">+ </span><span class="s1">hangman</span><span class="s2">[</span><span class="s5">3</span><span class="s2">]);</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s1">hangman</span><span class="s2">[</span><span class="s5">4</span><span class="s2">] + </span><span class="s3">&quot; &quot; </span><span class="s2">+ </span><span class="s1">hangman</span><span class="s2">[</span><span class="s5">5</span><span class="s2">]);</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">();</span>
+                    <span class="s0">break</span><span class="s2">; </span><span class="s4">//needs a break here after reaches 6th attempt</span>
+                <span class="s2">}</span>
+            <span class="s2">}</span>
+        <span class="s2">}</span>
+        <span class="s0">return </span><span class="s1">word</span><span class="s2">;</span>
+    <span class="s2">}</span>
+<span class="s2">}</span></pre>
+</body>
+</html>
