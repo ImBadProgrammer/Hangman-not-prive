@@ -7,10 +7,7 @@ public class WordEliminator extends Words {
     private final List<String> ModdedWordList = new ArrayList<>();
 
     public WordEliminator() {
-    }
-
-    public WordEliminator(String file) {
-        readFile(file);
+        readFile("american-english.txt");
     }
 
     public List<String> getModdedWordList() {

@@ -1,41 +1,40 @@
 import java.util.List;
 import java.util.Random;
 
-public class RandomWordGenerator extends DifficultySelection{
+public class RandomWordGenerator extends DifficultySelect{
 
     private final Random random = new Random();
-    WordEliminator wordEliminator = new WordEliminator("american-english.txt");
 
     public String getRandomWord() {
-        List<String> words = wordEliminator.getModdedWordList();
+        List<String> words = getWordsByLength(0, 31);
 
         int randomIndex = random.nextInt(words.size());
         return words.get(randomIndex);
     }
 
     public String getEasyWord(){
-        List<String> words = getEasyWords();
+        List<String> words = getWordsByLength(4, 6);
 
         int randomIndex = random.nextInt(words.size());
         return words.get(randomIndex);
     }
 
     public String getMediumWord(){
-        List<String> words = getMediumWords();
+        List<String> words = getWordsByLength(7, 9);
 
         int randomIndex = random.nextInt(words.size());
         return words.get(randomIndex);
     }
 
     public String getHardWord(){
-        List<String> words = getHardWords();
+        List<String> words = getWordsByLength(10, 13);
 
         int randomIndex = random.nextInt(words.size());
         return words.get(randomIndex);
     }
 
     public String getExtremeWord(){
-        List<String> words = getExtremeWords();
+        List<String> words = getWordsByLength(13, 16);
 
         int randomIndex = random.nextInt(words.size());
         return words.get(randomIndex);
@@ -48,6 +47,5 @@ public class RandomWordGenerator extends DifficultySelection{
         int randomIndex = random.nextInt(words.size());
         return words.get(randomIndex);
     }
-
 
 }

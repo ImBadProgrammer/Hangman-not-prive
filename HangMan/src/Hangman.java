@@ -52,28 +52,34 @@ public class Hangman {
                 if (numAttempts == 1) {
                     System.out.println(hangman[0]);
                     System.out.println();
+                    System.out.println(6 - numAttempts + " number of attempts remaining\n");
                 } else if (numAttempts == 2) {
                     System.out.println(hangman[0]);
                     System.out.println(hangman[1]);
                     System.out.println();
+                    System.out.println(6 - numAttempts + " number of attempts remaining\n");
                 } else if (numAttempts == 3) {
                     System.out.println(" " + hangman[0]);
                     System.out.println(hangman[2] + " " + hangman[1]);
                     System.out.println();
+                    System.out.println(6 - numAttempts + " number of attempts remaining\n");
                 } else if (numAttempts == 4) {
                     System.out.println(" " + hangman[0]);
                     System.out.println(hangman[2] + " " + hangman[1] + " " + hangman[3]);
                     System.out.println();
+                    System.out.println(6 - numAttempts + " number of attempts remaining\n");
                 } else if (numAttempts == 5) {
                     System.out.println(" " + hangman[0]);
                     System.out.println(hangman[2] + " " + hangman[1] + " " + hangman[3]);
                     System.out.println(hangman[4]);
                     System.out.println();
+                    System.out.println(6 - numAttempts + " number of attempts remaining\n");
                 } else {
                     System.out.println(" " + hangman[0] + " Just gonna leave me hanging? ");
                     System.out.println(hangman[2] + " " + hangman[1] + " " + hangman[3]);
                     System.out.println(hangman[4] + " " + hangman[5]);
                     System.out.println();
+                    System.out.println("You lose!");
                     break; //needs a break here after reaches 6th attempt
                 }
             }
